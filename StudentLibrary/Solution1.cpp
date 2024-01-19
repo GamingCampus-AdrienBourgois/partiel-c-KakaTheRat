@@ -15,22 +15,25 @@ float Solution1::ConvertTemperature(float _value, TemperatureUnits _from, Temper
 		result = 9.f / 5.f * (_value)+32.f;
 	}
 	else if(_from == TemperatureUnits::KELVIN && _to == TemperatureUnits::FAHRENHEIT) {
-		result = 9.f / 5.f * (_value - 273.f) + 32.f;
+		result = 9.f / 5.f * (_value - 273.15f) + 32.f;
 	}
 	else if (_from == TemperatureUnits::KELVIN && _to == TemperatureUnits::FAHRENHEIT) {
-		result = 9.f / 5.f * (_value - 273.f) + 32.f;
+		result = 9.f / 5.f * (_value - 273.15f) + 32.f;
 	}
 	else if (_from == TemperatureUnits::FAHRENHEIT && _to == TemperatureUnits::CELSIUS) {
 		result = 5.f / 9.f * (_value - 32.f);
 	}
 	else if (_from == TemperatureUnits::CELSIUS && _to == TemperatureUnits::KELVIN) {
-		result = _value + 273.f;
+		result = _value + 273.15f;
 	}
 	else if (_from == TemperatureUnits::KELVIN && _to == TemperatureUnits::CELSIUS) {
-		result = _value - 273.f;
+		result = _value - 273.15f;
 	}
 	else if (_from == TemperatureUnits::FAHRENHEIT && _to == TemperatureUnits::KELVIN) {
-		result = 5.f / 9.f * (_value - 32.f) + 273.f;
+		result = 5.f / 9.f * (_value - 32.f) + 273.15f;
+	}
+	else {
+		return _value;
 	}
 	return result;
 }
